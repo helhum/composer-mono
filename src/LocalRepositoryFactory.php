@@ -35,7 +35,7 @@ class LocalRepositoryFactory
         $composer = $event->getComposer();
         $rootPackage = $composer->getPackage();
         $pluginOptions = $rootPackage->getExtra()['helhum/composer-mono'];
-        $appsDir = $fileSystem->normalizePath($this->baseDir . '/' . $pluginOptions['apps-dir'] ?? 'apps');
+        $appsDir = $fileSystem->normalizePath($this->baseDir . '/' . ($pluginOptions['apps-dir'] ?? 'apps'));
         $autoLoadGenerator = $composer->getAutoloadGenerator();
         $localRepo = $composer->getRepositoryManager()->getLocalRepository();
         $packagesAndPath = $autoLoadGenerator->buildPackageMap($composer->getInstallationManager(), $rootPackage, $localRepo->getCanonicalPackages());
